@@ -12,13 +12,22 @@ if (!preg_match('/^[a-zA-Z0-9_]+$/', DB_NAME)) {
     throw new RuntimeException('The configured database name is invalid.');
 }
 
-$serverDsn = sprintf('mysql:host=%s;port=%s;charset=utf8mb4', DB_HOST, DB_PORT);
-$pdo = new PDO($serverDsn, DB_USER, DB_PASS, [
+$pdoOptions = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-]);
-$pdo->exec('CREATE DATABASE IF NOT EXISTS `' . DB_NAME . '` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
-$pdo->exec('USE `' . DB_NAME . '`');
+];
+$databaseDsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', DB_HOST, DB_PORT, DB_NAME);
+
+try {
+    // Existing hosted databases normally grant access only to one database.
+    $pdo = new PDO($databaseDsn, DB_USER, DB_PASS, $pdoOptions);
+} catch (PDOException) {
+    // Local development may start without a database, so create it when permitted.
+    $serverDsn = sprintf('mysql:host=%s;port=%s;charset=utf8mb4', DB_HOST, DB_PORT);
+    $pdo = new PDO($serverDsn, DB_USER, DB_PASS, $pdoOptions);
+    $pdo->exec('CREATE DATABASE IF NOT EXISTS `' . DB_NAME . '` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+    $pdo->exec('USE `' . DB_NAME . '`');
+}
 
 $schema = file_get_contents(dirname(__DIR__) . '/database/schema.sql');
 if ($schema === false) {
@@ -89,4 +98,3 @@ if ($generatedPassword) {
     echo "Admin password: supplied through JG_ADMIN_PASSWORD\n";
 }
 echo $smtpPassword !== '' ? "SMTP password encrypted and stored.\n" : "SMTP password not supplied; add it in Admin > Settings.\n";
-
