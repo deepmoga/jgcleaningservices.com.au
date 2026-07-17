@@ -1,0 +1,33 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Protect application internals while allowing public assets and admin pages.
+RewriteRule ^(?:config|database|includes|lib|scripts|storage)(?:/|$) - [F,L,NC]
+
+# Clean public routes (no .php in frontend URLs).
+RewriteRule ^services/([a-z0-9-]+)/?$ service.php?slug=$1 [L,QSA,NC]
+RewriteRule ^(about|services|contact|privacy-policy)/?$ page.php?slug=$1 [L,QSA,NC]
+RewriteRule ^$ index.php [L]
+
+# Prevent direct access to public controller filenames.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.php[\s?] [NC]
+RewriteRule ^index\.php$ ./ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [R=404,L]
+</IfModule>
+
+<FilesMatch "^\.(?:env|git)|(?:\.sql|\.log|local\.php)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="286" height="74" viewBox="0 0 286 74" role="img" aria-labelledby="title desc">
+  <title id="title">JG Cleaning Services</title>
+  <desc id="desc">JG monogram with a cleaning sparkle in navy and cyan.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10137e"/>
+      <stop offset="1" stop-color="#06a2c7"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="68" height="68" rx="22" fill="url(#g)"/>
+  <path d="M19 20h13v27c0 10-5 15-15 15h-4V51h3c3 0 4-2 4-5V20zm18 14c0-9 7-15 17-15 5 0 9 1 13 4l-6 9c-2-2-4-3-7-3-3 0-5 2-5 5v9c0 4 2 6 6 6h2v-8h11v18c-4 2-9 3-14 3-10 0-17-6-17-16V34z" fill="#fff"/>
+  <path d="m59 8 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" fill="#8feaff"/>
+  <text x="83" y="34" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" letter-spacing="-1.1" fill="#10137e">JG CLEANING</text>
+  <text x="84" y="54" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.15" fill="#06a2c7">SERVICES</text>
+</svg>
+

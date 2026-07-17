@@ -1,0 +1,7 @@
+/config/local.php
+/assets/uploads/*
+!/assets/uploads/.htaccess
+!/assets/uploads/index.html
+/storage/
+*.log
+/*.zip
