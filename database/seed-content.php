@@ -21,6 +21,7 @@ $settings = [
     'footer_text' => 'Professional, reliable cleaning for Melbourne workplaces, properties and building projects. We bring the care, equipment and attention to detail your space deserves.',
     'logo_main' => 'assets/images/main-logo.png',
     'logo_footer' => 'assets/images/footer-white-logo.png',
+    'home_about_image' => 'assets/images/jg-cleaning-team-hero.webp',
     'smtp_host' => 'smtp.gmail.com',
     'smtp_port' => '587',
     'smtp_encryption' => 'tls',
@@ -294,4 +295,3 @@ HTML,
 ];
 
 return compact('settings', 'pages', 'services');
-

@@ -44,11 +44,10 @@ $socials = [
 </footer>
 <?php if ($whatsappNumber !== ''): ?>
 <a class="floating-whatsapp" href="https://wa.me/<?= e($whatsappNumber) ?>?text=<?= rawurlencode($whatsappMessage) ?>" target="_blank" rel="noopener" aria-label="Chat with JG Cleaning Services on WhatsApp">
-    <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3A12.5 12.5 0 0 0 5.2 21.8L3.5 28.5l6.9-1.6A12.5 12.5 0 1 0 16 3Zm0 22.7c-2 0-3.9-.6-5.5-1.6l-.4-.2-4.1 1 1.1-4-.3-.4A10.1 10.1 0 1 1 16 25.7Zm5.6-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-2-.9-3.3-1.8-4.6-4-.4-.6.4-.6 1.1-1.8.1-.2 0-.4 0-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-1 1.1-1.4 2.3-1.4 3.7 0 2.2 1.6 4.3 1.8 4.6.2.3 3.1 4.8 7.6 6.7 2.7 1.1 3.7 1.2 5 .8.8-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/></svg>
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     <span>WhatsApp us</span>
 </a>
 <?php endif; ?>
 <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 <script src="<?= e(asset('assets/js/main.js')) ?>" defer></script>
 </body></html>
-

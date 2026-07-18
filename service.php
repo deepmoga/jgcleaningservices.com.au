@@ -22,12 +22,6 @@ $currentPage = 'service';
 require __DIR__ . '/includes/header.php';
 ?>
 <main id="main-content">
-    <section class="service-featured-media" aria-label="<?= e($service['title']) ?> featured image">
-        <div class="container">
-            <img src="<?= e(asset((string) ($service['detail_image'] ?: 'assets/images/jg-cleaning-team-hero.webp'))) ?>" alt="Professional <?= e($service['title']) ?> in Melbourne">
-        </div>
-    </section>
-
     <section class="page-hero page-hero--slim">
         <div class="container page-hero__inner">
             <div>
@@ -41,7 +35,7 @@ require __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <section class="section service-detail"><div class="container service-detail__grid"><article class="content-prose service-content"><div class="service-summary"><p><?= e($service['short_description']) ?></p><div class="service-summary__actions"><a class="btn btn--primary" href="#service-quote">Get a Free Quote <span>&nearr;</span></a><a class="service-summary__phone" href="tel:<?= e(preg_replace('/\D+/', '', (string) setting('phone_1'))) ?>">Call <?= e((string) setting('phone_1')) ?></a></div></div><div class="service-intro-badge"><span>JG</span><p><strong>Professional service</strong><br>Tailored to your property and cleaning goals.</p></div><?= sanitize_content((string) $service['content']) ?>
+    <section class="section service-detail"><div class="container service-detail__grid"><article class="content-prose service-content"><div class="service-summary"><p><?= e($service['short_description']) ?></p><div class="service-summary__actions"><a class="btn btn--primary" href="#service-quote">Get a Free Quote <span>&nearr;</span></a><a class="service-summary__phone" href="tel:<?= e(preg_replace('/\D+/', '', (string) setting('phone_1'))) ?>">Call <?= e((string) setting('phone_1')) ?></a></div></div><div class="service-intro-badge"><span>JG</span><p><strong>Professional service</strong><br>Tailored to your property and cleaning goals.</p></div><figure class="service-content-image"><img src="<?= e(asset((string) ($service['detail_image'] ?: 'assets/images/jg-cleaning-team-hero.webp'))) ?>" alt="Professional <?= e($service['title']) ?> in Melbourne" loading="eager"></figure><?= sanitize_content((string) $service['content']) ?>
         <?php if ($faqs): ?><section class="faq-section" aria-labelledby="faq-title"><span class="eyebrow">Frequently asked questions</span><h2 id="faq-title"><?= e($service['title']) ?> FAQs</h2><div class="faq-list"><?php foreach ($faqs as $index => $faq): ?><details <?= $index === 0 ? 'open' : '' ?>><summary><?= e($faq['question']) ?><span>+</span></summary><p><?= e($faq['answer']) ?></p></details><?php endforeach; ?></div></section><?php endif; ?>
     </article><aside class="service-sidebar"><div class="service-nav"><h2>Our Services</h2><?php foreach ($services as $navService): ?><a class="<?= $navService['id'] === $service['id'] ? 'is-active' : '' ?>" href="<?= e(url('services/' . $navService['slug'])) ?>"><?= e($navService['title']) ?><span>›</span></a><?php endforeach; ?></div><div id="service-quote"><?php $formServices = $services; $selectedServiceId = (int) $service['id']; $formTitle = 'Get a ' . $service['title'] . ' quote'; require __DIR__ . '/includes/enquiry-form.php'; ?></div></aside></div></section>
 

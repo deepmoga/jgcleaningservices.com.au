@@ -32,6 +32,7 @@ $assetVersion = static fn (string $path): string => (string) (filemtime(APP_ROOT
     <meta property="og:url" content="<?= e($canonicalUrl) ?>">
     <meta property="og:image" content="<?= e(asset('assets/images/jg-cleaning-team-hero.webp')) ?>">
     <link rel="icon" href="<?= e(asset($mainLogo)) ?>" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="<?= e(asset('assets/css/style.css') . '?v=' . $assetVersion('assets/css/style.css')) ?>">
     <link rel="stylesheet" href="<?= e(asset('assets/css/cms.css') . '?v=' . $assetVersion('assets/css/cms.css')) ?>">
     <link rel="stylesheet" href="<?= e(asset('assets/css/cms-fixes.css') . '?v=' . $assetVersion('assets/css/cms-fixes.css')) ?>">
