@@ -13,6 +13,7 @@ $mainLogo = (string) setting('logo_main', 'assets/images/main-logo.png');
 $phoneOne = (string) setting('phone_1');
 $phoneTwo = (string) setting('phone_2');
 $emailOne = (string) setting('email_1');
+$assetVersion = static fn (string $path): string => (string) (filemtime(APP_ROOT . '/' . $path) ?: 1);
 ?>
 <!doctype html>
 <html lang="en-AU">
@@ -31,9 +32,9 @@ $emailOne = (string) setting('email_1');
     <meta property="og:url" content="<?= e($canonicalUrl) ?>">
     <meta property="og:image" content="<?= e(asset('assets/images/jg-cleaning-team-hero.webp')) ?>">
     <link rel="icon" href="<?= e(asset($mainLogo)) ?>" type="image/png">
-    <link rel="stylesheet" href="<?= e(asset('assets/css/style.css')) ?>">
-    <link rel="stylesheet" href="<?= e(asset('assets/css/cms.css')) ?>">
-    <link rel="stylesheet" href="<?= e(asset('assets/css/cms-fixes.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/style.css') . '?v=' . $assetVersion('assets/css/style.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/cms.css') . '?v=' . $assetVersion('assets/css/cms.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/cms-fixes.css') . '?v=' . $assetVersion('assets/css/cms-fixes.css')) ?>">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
