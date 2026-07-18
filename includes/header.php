@@ -68,7 +68,12 @@ $emailOne = (string) setting('email_1');
             <a class="<?= $currentPage === 'home' ? 'is-active' : '' ?>" href="<?= e(url()) ?>">Home</a>
             <a class="<?= $currentPage === 'about' ? 'is-active' : '' ?>" href="<?= e(url('about')) ?>">About</a>
             <div class="nav-dropdown">
-                <a class="<?= in_array($currentPage, ['services', 'service'], true) ? 'is-active' : '' ?>" href="<?= e(url('services')) ?>">Services <span aria-hidden="true">⌄</span></a>
+                <a class="<?= in_array($currentPage, ['services', 'service'], true) ? 'is-active' : '' ?>" href="<?= e(url('services')) ?>">
+                    <span>Services</span>
+                    <svg class="nav-dropdown__chevron" aria-hidden="true" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.25 6 6.25l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
                 <div class="nav-dropdown__menu">
                     <?php foreach ($headerServices as $headerService): ?>
                         <a href="<?= e(url('services/' . $headerService['slug'])) ?>"><?= e($headerService['title']) ?></a>

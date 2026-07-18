@@ -1,4 +1,23 @@
 /* Small interaction refinements loaded after the main CMS theme. */
+.nav-dropdown > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-dropdown > a > span {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.nav-dropdown__chevron {
+    display: block;
+    width: 11px;
+    height: 8px;
+    flex: 0 0 11px;
+    transform: translateY(1px);
+}
+
 .floating-whatsapp {
     width: 60px;
     height: 60px;

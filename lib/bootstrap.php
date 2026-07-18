@@ -278,9 +278,9 @@ function upload_image(string $field, ?string $existing = null): ?string
     }
 
     $mime = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
-    $extensions = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'];
+    $extensions = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/avif' => 'avif'];
     if (!isset($extensions[$mime])) {
-        throw new RuntimeException('Only JPG, PNG and WebP images are allowed.');
+        throw new RuntimeException('Only JPG, PNG, WebP and AVIF images are allowed.');
     }
     if (!is_dir(UPLOAD_DIR) && !mkdir(UPLOAD_DIR, 0755, true) && !is_dir(UPLOAD_DIR)) {
         throw new RuntimeException('The upload directory is not writable.');

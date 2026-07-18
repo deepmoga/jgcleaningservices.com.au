@@ -1023,7 +1023,7 @@ p {
 .process-grid::before {
   content: "";
   position: absolute;
-  top: 64px;
+  top: 109px;
   left: 12%;
   right: 12%;
   border-top: 2px dashed #c9dfea;
@@ -1032,24 +1032,19 @@ p {
   position: relative;
   text-align: center;
 }
-.process-step > span {
-  position: absolute;
-  top: 4px;
-  right: calc(50% - 63px);
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--cyan);
-  box-shadow: 0 5px 14px rgba(6, 162, 199, 0.28);
-  font-size: 9px;
-  font-weight: 800;
+.process-step__number {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: 0 auto 12px;
+  color: var(--cyan);
+  font-size: 30px;
+  font-weight: 850;
+  line-height: 1.1;
 }
 .process-step__icon {
   position: relative;
+  z-index: 1;
   display: grid;
   width: 126px;
   height: 126px;
