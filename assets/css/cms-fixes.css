@@ -30,7 +30,111 @@
     display: none;
 }
 
+/* Compact inner-page headings: navigation and page title only. */
+.page-hero--slim::after {
+    width: 280px;
+    height: 280px;
+    right: -90px;
+    opacity: 0.08;
+}
+
+.page-hero--slim .page-hero__inner {
+    min-height: 190px;
+}
+
+.page-hero--slim .page-hero__inner > div {
+    width: 100%;
+    padding: 34px 0 38px;
+}
+
+.page-hero--slim .breadcrumbs {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+.page-hero--slim h1 {
+    max-width: 900px;
+    margin: 0;
+    font-size: clamp(34px, 4.25vw, 52px);
+    line-height: 1.08;
+}
+
+/* The service image is independent of the breadcrumb and sits above the title. */
+.service-featured-media {
+    padding: 42px 0;
+    background: #f5f8fd;
+}
+
+.service-featured-media img {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 42vw, 560px);
+    object-fit: cover;
+    border-radius: 26px;
+    box-shadow: 0 18px 55px rgba(16, 19, 126, 0.13);
+}
+
+.service-summary {
+    margin-bottom: 34px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid #dce6f1;
+}
+
+.service-summary > p {
+    margin: 0 0 22px;
+    color: #26344b;
+    font-size: 20px;
+    line-height: 1.75;
+}
+
+.service-summary__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.service-summary__phone {
+    color: #10137e;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.service-summary__phone:hover {
+    color: #06a2c7;
+}
+
 @media (max-width: 700px) {
+    .page-hero--slim .page-hero__inner {
+        min-height: 150px;
+    }
+
+    .page-hero--slim .page-hero__inner > div {
+        padding: 26px 0 30px;
+    }
+
+    .page-hero--slim .breadcrumbs {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .page-hero--slim h1 {
+        font-size: clamp(30px, 9vw, 40px);
+    }
+
+    .service-featured-media {
+        padding: 22px 0;
+    }
+
+    .service-featured-media img {
+        height: 260px;
+        border-radius: 18px;
+    }
+
+    .service-summary > p {
+        font-size: 18px;
+    }
+
     .floating-whatsapp {
         width: 56px;
         height: 56px;

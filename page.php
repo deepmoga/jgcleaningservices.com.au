@@ -21,7 +21,7 @@ $currentPage = $slug;
 require __DIR__ . '/includes/header.php';
 ?>
 <main id="main-content">
-    <section class="page-hero"><div class="container page-hero__inner"><div><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="<?= e(url()) ?>">Home</a><span>›</span><span><?= e($page['title']) ?></span></nav><span class="eyebrow eyebrow--light"><?= $slug === 'services' ? 'Professional solutions' : 'JG Cleaning Services' ?></span><h1><?= e($page['hero_title']) ?></h1><p><?= e($page['hero_subtitle']) ?></p></div></div></section>
+    <section class="page-hero page-hero--slim"><div class="container page-hero__inner"><div><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="<?= e(url()) ?>">Home</a><span aria-hidden="true">&rsaquo;</span><span><?= e($page['title']) ?></span></nav><h1><?= e($page['title']) ?></h1></div></div></section>
 
     <?php if ($slug === 'services'): ?>
     <section class="section inner-services"><div class="container"><div class="content-prose content-prose--intro"><?= sanitize_content((string) $page['content']) ?></div><div class="services-grid services-grid--images">
