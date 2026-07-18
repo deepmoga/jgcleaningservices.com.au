@@ -733,7 +733,6 @@ p {
 .service-card > a {
   position: relative;
   z-index: 2;
-  display: inline-flex;
   gap: 10px;
   align-items: center;
   color: var(--navy);
